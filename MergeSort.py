@@ -11,21 +11,20 @@ def MergeSort(lst: list) -> list:
                 complete = True
             elif p2 >= len(lst):
                 complete = True
-                while p3 < len(lst): temp[p3] = lst[p1]; p1, p3 = p1 + 1, p3 + 1
+                uhh = ((cur-1) * size * 2 + size) * ((cur-1) * size * 2 + size < len(lst)) + (len(lst)) * ((cur-1) * size * 2 + size >= len(lst))
+                temp[p3:] = lst[p1:uhh]
             else:
                 if lst[p1] <= lst[p2]:
                     temp[p3] = lst[p1]; p1, p3 = p1 + 1, p3 + 1
-                    if p1 % size == 0:
-                        temp[p3:(cur) * size * 2] = lst[p2:2 * (cur) * size]; p1, p2, p3 = update(cur, size)
+                    if p1 % size == 0: temp[p3:(cur) * size * 2] = lst[p2:2 * (cur) * size]; p1, p2, p3 = update(cur, size); cur += 1
                 else:
                     temp[p3] = lst[p2]; p2, p3 = p2 + 1, p3 + 1
-                    if p2 % size == 0:
-                        temp[p3:(cur) * size * 2] = lst[p1:size * (2 * (cur-1) + 1)]; p1, p2, p3 = update(cur, size)
-            cur += 1
+                    if p2 % size == 0: temp[p3:(cur) * size * 2] = lst[p1:size * (2 * (cur-1) + 1)]; p1, p2, p3 = update(cur, size); cur += 1
+            
                         
         lst = temp.copy()
     return lst
 
 
-lst = [4,2,7,1,0, -1, 5]
+lst = [4,2,7,1,0, -1, 5,-5]
 print(MergeSort(lst))                  
