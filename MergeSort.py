@@ -16,13 +16,11 @@ def MergeSort(lst: list) -> list:
                 if lst[p1] <= lst[p2]:
                     temp[p3] = lst[p1]; p1, p3 = increment(p1, p3)
                     if p1 % size == 0:
-                        temp[p3:(cur+1) * size * 2] = lst[p2:2 * (cur) * size + (2 * size)]
-                        p1, p2, p3 = (cur+1) * size * 2, (cur+1) * size * 2 + size, (cur+1) * 2 * size
+                        temp[p3:(cur+1) * size * 2] = lst[p2:2 * (cur + 1) * size]; p1, p2, p3 = (cur+1) * size * 2, size * ((cur+1) * 2 + 1), (cur+1) * 2 * size
                 else:
                     temp[p3] = lst[p2]; p2, p3 = increment(p2, p3)
                     if p2 % size == 0:
-                        temp[p3:(cur+1) * size * 2] = lst[p1:2 * (cur) * size + size]
-                        p1, p2, p3 = (cur+1) * size * 2, (cur+1) * size * 2 + size, (cur+1) * 2 * size
+                        temp[p3:(cur+1) * size * 2] = lst[p1:size * (2 * cur + 1)]; p1, p2, p3 = (cur+1) * size * 2, size * ((cur+1) * 2 + 1), (cur+1) * 2 * size
             cur += 1
                         
         lst = temp.copy()
