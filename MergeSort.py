@@ -10,9 +10,7 @@ def MergeSort(lst: list) -> list:
             if p1 >= len(lst):
                 complete = True
             elif p2 >= len(lst):
-                complete = True
-                uhh = ((cur-1) * size * 2 + size) * ((cur-1) * size * 2 + size < len(lst)) + (len(lst)) * ((cur-1) * size * 2 + size >= len(lst))
-                temp[p3:] = lst[p1:uhh]
+                complete, temp[p3:] = True, lst[p1:((cur-1) * size * 2 + size) * ((cur-1) * size * 2 + size < len(lst)) + (len(lst)) * ((cur-1) * size * 2 + size >= len(lst))]
             else:
                 if lst[p1] <= lst[p2]:
                     temp[p3] = lst[p1]; p1, p3 = p1 + 1, p3 + 1
