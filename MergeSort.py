@@ -13,7 +13,7 @@ def MergeSort(lst: list) -> list:
             if p1 >= length:
                 complete = True
             elif p2 >= length:
-                complete, temp[p3:] = True, lst[p1:((cur-1) * size * 2 + size) * (size * ((cur-1) * 2 + 1) < length) + size * (length * ((cur-1) * 2 + 1) >= length)]
+                complete, temp[p3:] = True, lst[p1:((cur-1) * size * 2 + size) * (size * ((cur-1) * 2 + 1) <= length) + length * (size * ((cur-1) * 2 + 1) > length)]
             else:
                 if lst[p1] <= lst[p2]: 
                     temp[p3], p1, p3 = lst[p1], p1 + 1, p3 + 1; [[temp[p3:cur * size * 2]],[p1, p2, p3, cur]] = shift(p1, p2, p3, lst, cur, size, p2, p1, 2 * cur * size)    
@@ -26,5 +26,5 @@ def MergeSort(lst: list) -> list:
     return lst
 
 
-lst = [4,2,7,1,0, -1, 5,-5]
+lst = [81,2,7,1,0, -1, 5,-5]
 print(MergeSort(lst))
